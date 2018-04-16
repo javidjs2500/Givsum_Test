@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block head %}        
+    <title>Sample Page</title>
+    <style>
+        body{
+            font-family: Helvetica;
+        }
+        #box {
+            width: 30%;
+            height: 35%;
+            min-height: 350px;
+            margin: auto;
+            background-color: #FF7F50;
+            color: #ffffff;
+            padding: 25px;
+            border-radius: 5px;
+        }
+        form {
+            color: black;
+        }
+        button{
+            margin-top: 20px;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+    <div id = box>
+            <div class="form-group">
+                    <center><label for="usr">Event Name:</label></center>
+                    <input type="text" class="form-control" id="usr">
+                  </div>
+                  <div class="form-group">
+                    <center><label for="usr">Organization:</label></center>
+                    <select class="form-control" id="sel1">
+                        {% for org in organizations %}
+                        <option>{{ org }}</option>
+                        {% endfor %}
+                      </select>
+                </div>
+                <div>
+                        <form>
+                                <center><label for="usr"><font color="white">Event Date and Time:</font></label></center><br>
+                                <center><input type="datetime-local" class = "form-control" name="eventtime", style="text-align: center; width: 75%; max-width: 300px; padding: 0px 0px 0px 50px;"></center>
+                              </form>
+                </div>
+                <div align = "right">
+                        <button onclick="myFunction()" class="btn btn-success" >Create Event</button>
+
+                            <script>
+                            function myFunction() {
+                                alert("Event Created!");
+                            }
+                            </script>
+                </div>
+
+                
+                
+    </div>
+
+{% endblock %}
