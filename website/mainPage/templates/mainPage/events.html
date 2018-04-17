@@ -1,1 +1,94 @@
 {% extends 'base.html' %}
+{% block head %}
+<meta charset="utf-8">
+    <title>sample</title>
+
+    <style>
+    body {
+        font-family: Helvetica;
+    }
+    .event {
+        background-color: #efefef;
+        padding: 20px 10px 10px 10px;
+        margin: 10px auto;
+        width: 60%;
+        border-radius: 10px;
+    }
+    .event-left {
+        width: 10%;
+    }
+    .event-right {
+        width: 50%;
+        margin-left: 190px;
+        margin-top: -185px;
+        margin-bottom: 20px;
+    }
+    #icon img {
+        width: 120px;
+        height: 120px;
+        border-radius: 60px;
+        margin-left: 30px;
+        margin-bottom: 25px;
+    }
+    #time {
+        margin-left: 50px;
+        font-size: 30px;
+        font-weight: bold;
+    }
+    .col-9 {
+        margin-left: 55px;
+        margin-top: 5px;
+        margin-bottom: -5px;
+    }
+    #date {
+        font-size: 20px;
+        color: #323232;
+        text-transform: uppercase;
+        margin-bottom: -15px;
+    }
+    #event {
+        font-size: 40px;
+        font-weight: bold;
+        text-transform: uppercase;        
+    }
+    #location {
+        font-size: 20px;
+        color: #323232;
+        text-transform: uppercase;
+        font-style: italic;
+        margin-top: -15px;
+    }
+    #description {
+        font-size: 12px;
+        width: 575px;
+        height: 70px;
+        margin-bottom: 30px;
+    }
+    .information {
+        position: relative;
+        margin: -2px 0px 0px 0px;
+    }
+    </style>
+
+{% endblock %}
+{% block body %}
+{% for event in events %}
+<div class="event">
+    <div class="event-left">
+        <div id="time">{{event.time}}</div>
+        <div id="icon"><img src={{event.picture_url}}></div>
+    </div>
+    <div class="event-right">
+        <div class="information">
+            <div id="date">{{event.date}}</div>
+            <div id="event">{{event.name}}</div>
+            <div id="location">{{event.address}}</div>
+            <div id="description">{{event.event_description}}</div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+
+
+{% endblock %}

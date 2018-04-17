@@ -13,4 +13,6 @@ def index(request):
 
 
 def events(request):
-    return render(request, 'mainPage/events.html')
+    events = Event.objects.all()
+    return render(request, 'mainPage/events.html',{'events': sorted(events,key = lambda x: x.name)}
+    )
