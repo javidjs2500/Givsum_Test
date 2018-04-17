@@ -37,7 +37,13 @@
     </style>
 {% endblock %}
 
+{% block bar %}
+<li class="active"><a href="/">Home</a></li>
+<li><a href="/events/">Events Data</a></li>
+{% endblock %}
+
 {% block body %}
+
     <div id = box>
         <form action= {% url 'mainPage:index' %} method='post'>
             {% csrf_token %}

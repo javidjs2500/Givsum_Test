@@ -71,6 +71,12 @@
     </style>
 
 {% endblock %}
+
+{% block bar %}
+    <li><a href="/">Home</a></li>
+    <li class="active"><a href="/events/">Events Data</a></li>
+{% endblock %}
+
 {% block body %}
 {% for event in events %}
 <div class="event">
