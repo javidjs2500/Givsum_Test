@@ -12,7 +12,6 @@ class Organization(models.Model):
 
 class Event(models.Model):
     name = models.CharField(max_length = 250)
-    organization = models.ForeignKey(Organization, on_delete = models.CASCADE)
     time = models.CharField(max_length = 250)
     date = models.CharField(max_length = 250)
     event_description = models.CharField(default = '' ,max_length = 750)

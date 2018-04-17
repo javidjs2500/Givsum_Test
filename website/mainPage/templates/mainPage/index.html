@@ -7,61 +7,71 @@
         }
         #box {
             width: 30%;
-            height: 77%;
+            height: 70%;
             min-height: 550px;
             margin: auto;
-            background-color: #FF7F50;
+            background-color: #ff8c69;
             color: #ffffff;
             padding: 25px;
             border-radius: 5px;
             opacity: .9;
         }
         form {
-            color: black;
+            margin-top: 25px;
+            color: white;
         }
         button{
             margin-top: 20px;
         }
+        .btn-light {
+            background-color: #ffffff;
+            color: #ff8c69;
+            font-weight: bold;
+        }
+        .btn-light:hover {
+            color: #ffffff;
+            background-color: #ff8c69;
+            border: #fff 1px solid
+        }
+
     </style>
 {% endblock %}
 
 {% block body %}
     <div id = box>
-            <div class="form-group">
-                    <center><label for="usr">Event Name:</label></center>
-                    <input type="text" class="form-control" id="usr">
-                  </div>
-                  <div class="form-group">
-                    <center><label for="usr">Organization:</label></center>
-                    <select class="form-control" id="sel1">
-                        {% for org in organizations %}
-                        <option>{{ org }}</option>
-                        {% endfor %}
-                      </select>
+        <form action= {% url 'mainPage:index' %} method='post'>
+            {% csrf_token %}
+                <div class="form-group">
+                <label for="email">Name:</label>
+                <input class="form-control" id="email" name="name" placeholder="Enter event name">
                 </div>
                 <div class="form-group">
-                    <center><label for="usr">Location:</label></center>
-                    <input type="text" class="form-control" id="usr">
+                <label for="email">Organization:</label>
+                <input class="form-control" id="email" name="organization" placeholder="Enter organization name">
                 </div>
                 <div class="form-group">
-                    <label for="comment">Description:</label>
-                    <textarea class="form-control" rows="5" id="comment"></textarea>
+                <label for="email">Time:</label>
+                <input class="form-control" id="email" name="time" placeholder="Enter time">
                 </div>
-                <div>
-                        <form>
-                                <center><label for="usr"><font color="white">Event Date and Time:</font></label></center><br>
-                                <center><input type="datetime-local" class = "form-control" name="eventtime", style="text-align: center; width: 75%; max-width: 300px; padding: 0px 0px 0px 50px;"></center>
-                              </form>
+                <div class="form-group">
+                <label for="email">Date:</label>
+                <input class="form-control" id="email" name="date" placeholder="Enter date">
                 </div>
-                <div align = "right">
-                        <button onclick="myFunction()" class="btn btn-default">Create Event</button>
-
-                            <script>
-                            function myFunction() {
-                                alert("Event Created!");
-                            }
-                            </script>
+                <div class="form-group">
+                <label for="email">Event Description:</label>
+                <input class="form-control" id="email" name="event_description" placeholder="Enter event description">
                 </div>
+                <div class="form-group">
+                <label for="email">Address:</label>
+                <input class="form-control" id="email" name="address" placeholder="Enter address">
+                </div>
+                <div class="form-group">
+                <label for="email">Picture URL:</label>
+                <input class="form-control" id="email" name="picture_url" placeholder="Enter picture url">
+                </div>
+                <button type="submit" class="btn btn-light">Submit</button>
+            
+        </form>
 
                 
                 
